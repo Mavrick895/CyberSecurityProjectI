@@ -6,9 +6,9 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - [ELK Playbook](Ansible/install-elk.yml"install-elk.yml")
-  - [Filebeat Playbook](Ansible/filebeat-playbook.yml"filebeat-playbook.yml")
-  - [Metricbeat Playbook](Ansible/metricbeat-playbook.yml"metricbeat-playbook.yml")
+  - [ELK Playbook](Ansible/install-elk.yml)
+  - [Filebeat Playbook](Ansible/filebeat-playbook.yml)
+  - [Metricbeat Playbook](Ansible/metricbeat-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
@@ -96,7 +96,7 @@ SSH into the control node and follow the steps below:
 
 - The playbook files are kept in the /etc/ansible/roles directory, while the configuration files are kept on deeper in /etc/ansible/roles/files
 - The ansible hosts file (/etc/ansible/hosts) must be updated to create the specific groups of IPs that can be referenced in the playbooks, such as [webservers] or [elk]
-- http://[your_ELK_VM's_public_ip]:5601/app/kibana#/home will bring up the kibana home screen if everything is set up correctly.
+- http://[your_ELK_VM_public_ip]:5601/app/kibana#/home will bring up the kibana home screen if everything is set up correctly.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
