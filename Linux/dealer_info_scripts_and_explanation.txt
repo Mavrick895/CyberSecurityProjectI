@@ -1,0 +1,99 @@
+Individual scripts for Step 3 Dealer Analysis
+
+grep 02 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep AM 
+grep 08 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep AM 
+grep 02 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+grep 08 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+grep 11 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+
+grep 05 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep AM 
+grep 08 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep AM 
+grep 02 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+grep 08 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+grep 11 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+
+grep 05 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep AM 
+grep 08 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep AM 
+grep 02 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep PM 
+
+I used grep initally to search for a correct date schedule file that was specified.
+Piping that into an awk command allowed to print the already known column numbers with dealer names. 
+Then using grep again narrowed down between the two possible outputs, AM or PM. 
+
+Step 4 script with variables 
+
+#!/bin/bash
+grep $2 $1_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep $3
+
+Same concept as above, but with variables defined for date, time, and AM/PM.
+$1 is entered as 0310, for example, which matches the already existing dealers file nomenclature. 
+$2 is entered as 09, for example, which brings either 09 AM or PM as options to be read. 
+$3 is entered as AM or PM, and provides the final result. 
+
+Bonus scripts
+
+#!/bin/bash
+if [[ $4 = "blackjack" ]]
+then
+grep $2 $1_Dealer_schedule | awk -F" " '{print $1, $2, $3, $4}' | grep $3
+echo "blackjack"
+elif [[ $4 = "roulette" ]]
+then
+grep $2 $1_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep $3
+echo "roulette" 
+elif [[ $4 = "poker" ]]
+then 
+grep $2 $1_Dealer_schedule | awk -F" " '{print $1, $2, $7, $8}' | grep $3
+echo "texas hold em"  
+else
+echo "game not found"
+fi
+
+Same concept as the above scripts, but using if/elseif/else commands to print different columns with awk.
+$4 is defined as a string variable, matching one of the three game names, blackjack, roulette, or poker.
+Depending on which game is specified, it runs an identical script from step 4, but prints different columns from the dealer schedule files. 
+
+
+Bonus script using select command and a function to create a menu selection interface
+This was a blast to figure out!
+
+#!/bin/bash
+ f() { select BRP in "Blackjack" "Roulette" "Poker"; do 
+        echo "You chose $BRP, what date and time are you searching for?"
+                case $BRP in 
+                Blackjack)
+                read -p "Enter the date: " d1
+                read -p "Enter the time: " t1
+                read -p "AM or PM? " t2 
+                        grep $t1 "$d1"_Dealer_schedule | awk -F" " '{print $1, $2, $3, $4}' | grep $t2
+                ;;
+                Roulette)
+                read -p "Enter the date: " d1
+                read -p "Enter the time: " t1
+                read -p "AM or PM? " t2 
+                        grep $t1 "$d1"_Dealer_schedule | awk -F" " '{print $1, $2, $5, $6}' | grep $t2
+                ;;
+                Poker)
+                read -p "Enter the date: " d1
+                read -p "Enter the time: " t1
+                read -p "AM or PM? " t2 
+                        grep $t1 "$d1"_Dealer_schedule | awk -F" " '{print $1, $2, $7, $8}' | grep $t2
+                esac 
+                done }
+echo "What game are you searching for? Blackjack, Roulette, or Poker"
+        f
+        echo "Would you like to search again?"
+        select Yn in "Yes" "No"; do
+                case $Yn in
+                Yes) f
+                ;;
+                No) 
+                esac
+done
+
+In looking up ways to make the if command structure work, I came across the select command, and couldn't resist!
+Using the select command, I made a menu structure that asks first for game, then date and time, then AM or PM.
+These values essentially replaced defining each variable before being put into a script. 
+Attempting to add a way to search again, instead of having to rerun the script, I added the upper section as a function. 
+This allowed it to be called initially, and then called again if the second select command was answered with Yes.
+It honestly took me forever to figure out and actually make work, since it seems so exact about semi colons and spacing, but it was the most gratifying thing to finish!
