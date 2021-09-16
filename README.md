@@ -1,3 +1,12 @@
+## Introduction
+
+This repository contains all of the files used during the cloud security and elastic stack project I worked on during class.
+The final setup of the network was a single jump box virtual machine used to access the network, and running docker containers and ansible to configure the rest of the network.
+Two other VMs on one virtual network are used to run DVWA web servers.
+One VM on a separate network is used to run the ELK server, and parse data to kibana.
+There are also a variety of scripts and files created during the previous weeks of class.
+The most forefront goal using network security groups was to ensure that access was limited as much as possible, using the principal of least privilege.
+
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
@@ -58,7 +67,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-2                | No                  | 10.0.0.4 Jump Box            |
 | ELK-stack            | No                  | 10.0.0.4 Jump Box            |
 
-  - ![Network-Security-Group-rules](Images/Inked-red-nsg.png)
+  - ![Network Security Group rules](Images/Inked-red-nsg.png)
 
 The blue ink covers my home IP addresses, just replace with the public IP that is accessing the virtual network by connecting to the jump box.
 
@@ -101,3 +110,7 @@ SSH into the control node and follow the steps below:
 - The playbook files are kept in the /etc/ansible/roles directory, while the configuration files are kept on deeper in /etc/ansible/roles/files
 - The ansible hosts file (/etc/ansible/hosts) must be updated to create the specific groups of IPs that can be referenced in the playbooks, such as [webservers] or [elk]
 - http://[your_ELK_VM_public_ip]:5601/app/kibana#/home will bring up the kibana home screen if everything is set up correctly.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3a8e94f7b0d390c4104806a5bdaaffcac87deb3e
