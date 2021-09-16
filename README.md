@@ -1,3 +1,12 @@
+## Introduction
+
+This repository contains all of the files used during the cloud security and elastic stack project I worked on during class.
+The final setup of the network was a single jump box virtual machine used to access the network, and running docker containers and ansible to configure the rest of the network.
+Two other VMs on one virtual network are used to run DVWA web servers.
+One VM on a separate network is used to run the ELK server, and parse data to kibana.
+There are also a variety of scripts and files created during the previous weeks of class.
+The most forefront goal using network security groups was to ensure that access was limited as much as possible, using the principal of least privilege.
+
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
@@ -57,6 +66,10 @@ A summary of the access policies in place can be found in the table below.
 | Web-1                | No                  | 10.0.0.4 Jump Box            |
 | Web-2                | No                  | 10.0.0.4 Jump Box            |
 | ELK-stack            | No                  | 10.0.0.4 Jump Box            |
+
+  - ![Network Security Group rules](Images/Inked-red-nsg.png)
+
+The blue ink covers my home IP addresses, just replace with the public IP that is accessing the virtual network by connecting to the jump box.
 
 ### Elk Configuration
 
