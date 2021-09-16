@@ -110,7 +110,3 @@ SSH into the control node and follow the steps below:
 - The playbook files are kept in the /etc/ansible/roles directory, while the configuration files are kept on deeper in /etc/ansible/roles/files
 - The ansible hosts file (/etc/ansible/hosts) must be updated to create the specific groups of IPs that can be referenced in the playbooks, such as [webservers] or [elk]
 - http://[your_ELK_VM_public_ip]:5601/app/kibana#/home will bring up the kibana home screen if everything is set up correctly.
-<<<<<<< HEAD
-=======
-
->>>>>>> 3a8e94f7b0d390c4104806a5bdaaffcac87deb3e
