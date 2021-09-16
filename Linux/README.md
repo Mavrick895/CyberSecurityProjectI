@@ -14,11 +14,11 @@ A script to automate multiple failed SSH logins, useful for testing logging data
 A script to load a server by repeatedly downloading a file from it, while also sending the file to /dev/null so as not to clutter the working directory:
   - ![Wget/load web server script - Linux](Scripts/wget_script.sh)
 
-A script for use in powershell that will remove any packages defined in a list:
-  - ![Remove packages script - PowerShell](Scripts/removepackages.ps1)
-
 A script full of different useful loops:
   - ![Useful loops - Linux](Scripts/useful_loops.sh)
+
+A script for use in powershell that will remove any packages defined in a list:
+  - ![Remove packages script - PowerShell](Scripts/removepackages.ps1)
 
 A script to automate Get-Acl usage in powershell, by simply specifying the directory to which it is applied:
   - ![Get-Acl enumeration - Powershell](Scripts/acl_enum.ps1)
