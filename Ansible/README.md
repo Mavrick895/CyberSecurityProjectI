@@ -25,13 +25,13 @@ A YAML playbook used to install metricbeat on the web server VMs, as well as cop
 The files within the Files directory are the configuration files needed for filebeat and metricbeat setup. These need to be modified to work with the specific IPs and hosts in use, as well as the ports in use.
 
 The filebeat configuration file must be modified in two places:
- - Lines 1005-1007: the host IP and login information
- - Line 1805: the host IP
+ - Lines 1105-1107: the host IP and login information
+ - Line 1805: the host IP, and port 9200
 These changes allow filebeat to communicate properly with the ELK VM, and therefore allow us to gather information into kibana to be visualized.
   - ![Filebeat-config](Files/filebeat-config.yml)
 
 The metricbeat configuration file must be modified in two places:
- - Line 62: the host IP
+ - Line 62: the host IP, and port 9200
  - Lines 96-98: the host IP and login info
  These changes allow metricbeat to communicate properly with the ELK VM, and send CPU and memory data to kibana for us to see.
   - ![Metricbeat-config](Files/metricbeat-config.yml)
