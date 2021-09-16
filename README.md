@@ -111,14 +111,3 @@ SSH into the control node and follow the steps below:
 - The ansible hosts file (/etc/ansible/hosts) must be updated to create the specific groups of IPs that can be referenced in the playbooks, such as [webservers] or [elk]
 - http://[your_ELK_VM_public_ip]:5601/app/kibana#/home will bring up the kibana home screen if everything is set up correctly.
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-
-filebeat-config.yml -
-change lines 1105-1007 for host IP and login info
-change line 1805 for host IP
-
-metricbeat-config.yml - 
-change line 62 for host IP
-change lines 96-98 for host IP and login info
-
-cp ~/OneDrive/Documents/Cybersecurity-Bootcamp/Project\ I/README/README/README.md ~/CyberSecurityProjectI/Ansible/README.md to update this file
