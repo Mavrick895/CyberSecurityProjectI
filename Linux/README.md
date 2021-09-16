@@ -1,6 +1,7 @@
 ## Linux, Bash, and PowerShell Scripts
 
 Files in this section are related to various scripts created during the Linux and Windows administration weeks of class.
+
 A system audit script to produce useful information about the system and network currently in use can be found at:
   - ![System audit script - Linux](Scripts/system_audit_script.sh)
 
