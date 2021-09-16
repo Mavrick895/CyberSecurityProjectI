@@ -58,6 +58,10 @@ A summary of the access policies in place can be found in the table below.
 | Web-2                | No                  | 10.0.0.4 Jump Box            |
 | ELK-stack            | No                  | 10.0.0.4 Jump Box            |
 
+  - ![Network-Security-Group-rules](Images/Inked-red-nsg.png)
+
+The blue ink covers my home IP addresses, just replace with the public IP that is accessing the virtual network by connecting to the jump box.
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
@@ -97,15 +101,3 @@ SSH into the control node and follow the steps below:
 - The playbook files are kept in the /etc/ansible/roles directory, while the configuration files are kept on deeper in /etc/ansible/roles/files
 - The ansible hosts file (/etc/ansible/hosts) must be updated to create the specific groups of IPs that can be referenced in the playbooks, such as [webservers] or [elk]
 - http://[your_ELK_VM_public_ip]:5601/app/kibana#/home will bring up the kibana home screen if everything is set up correctly.
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-
-filebeat-config.yml -
-change lines 1105-1007 for host IP and login info
-change line 1805 for host IP
-
-metricbeat-config.yml - 
-change line 62 for host IP
-change lines 96-98 for host IP and login info
-
-cp ~/OneDrive/Documents/Cybersecurity-Bootcamp/Project\ I/README/README/README.md ~/CyberSecurityProjectI/Ansible/README.md to update this file
