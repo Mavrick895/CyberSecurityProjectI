@@ -17,6 +17,9 @@ A script to load a server by repeatedly downloading a file from it, while also s
 A script full of different useful loops:
   - ![Useful loops - Linux](Scripts/useful_loops.sh)
 
+A script to quickly update, destroy, and rebuild the Linux virtual machine used during many class activities:
+  - ![VM-rebuild](Scripts/vm_rebuild.sh)
+
 A script for use in powershell that will remove any packages defined in a list:
   - ![Remove packages script - PowerShell](Scripts/removepackages.ps1)
 
