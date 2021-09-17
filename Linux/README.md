@@ -6,7 +6,7 @@ A system audit script to produce useful information about the system and network
   - ![System audit script - Linux](Scripts/system_audit_script.sh)
 
 A set of scripts, as well as the explanation for them can be found in this text file. They were used in a class activity to find a correlation between fictional casino dealers and players:
-  - ![Player-Dealer correlation script - Linux](Scripts_dealer_info_scripts_and_explanation.txt)
+  - ![Player-Dealer correlation script - Linux](Scripts/dealer_info_scripts_and_explanation.txt)
 
 A script to automate multiple failed SSH logins, useful for testing logging data through the elastic stack:
   - ![Repeat failed SSH script - Linux](Scripts/failed_ssh_script.sh)
